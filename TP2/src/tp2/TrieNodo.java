@@ -9,9 +9,9 @@ public class TrieNodo<T1, T2> {
 	public Character letra;
 	public Tupla<T1[], T2> valor;
 
-	public TrieNodo(Character l) {
+	public TrieNodo(Character l, int len) {
 		letra = l;
-		hijos = (TrieNodo<T1, T2>[]) Array.newInstance(TrieNodo.class, 26);
+		hijos = (TrieNodo<T1, T2>[]) Array.newInstance(TrieNodo.class, len);
 	}
 
 	public void agregar(Tupla<T1[], T2> s) {
@@ -20,7 +20,7 @@ public class TrieNodo<T1, T2> {
 			int index = (Character) s.getE1()[i] - 'a';
 			if (nodo.hijos[index] == null) {
 				nodo.hijos[index] = new TrieNodo<T1, T2>(
-						(Character) s.getE1()[i]);
+						(Character) s.getE1()[i], hijos.length);
 			}
 			nodo = nodo.hijos[index];
 		}

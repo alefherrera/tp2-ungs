@@ -9,7 +9,7 @@ public class Trie<T1,T2> {
 	
 	public Trie(T1 [] alfabeto){
 		this.alfabeto = alfabeto;
-		raiz = new TrieNodo<>(null);
+		raiz = new TrieNodo<>(null, alfabeto.length);
 	}
 
 	public void agregar(Tupla<T1 [],T2 > s){
@@ -18,14 +18,11 @@ public class Trie<T1,T2> {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return raiz.toString();
 	}
 	
 	public ArrayList<Tupla<T1 [],T2 >> buscar(T1 [] buscar){
-		ArrayList<Tupla<T1 [],T2 >> r = raiz.buscar(buscar);
-		boolean a = true;
-		return r;
+		return raiz.buscar(buscar);
 	}
 	
 }
