@@ -6,10 +6,10 @@ import java.util.ArrayList;
 public class TrieNodo<T1, T2> {
 
 	public TrieNodo<T1, T2>[] hijos;
-	public Character letra;
+	public T1 letra;
 	public Tupla<T1[], T2> valor;
 
-	public TrieNodo(Character l, int len) {
+	public TrieNodo(T1 l, int len) {
 		letra = l;
 		hijos = (TrieNodo<T1, T2>[]) Array.newInstance(TrieNodo.class, len);
 	}
@@ -17,10 +17,10 @@ public class TrieNodo<T1, T2> {
 	public void agregar(Tupla<T1[], T2> s) {
 		TrieNodo<T1, T2> nodo = this;
 		for (int i = 0; i < s.getE1().length; i++) {
-			int index = (Character) s.getE1()[i] - 'a';
+			int index = Utils.getIndex(s.getE1()[i]);
 			if (nodo.hijos[index] == null) {
 				nodo.hijos[index] = new TrieNodo<T1, T2>(
-						(Character) s.getE1()[i], hijos.length);
+						 s.getE1()[i], hijos.length);
 			}
 			nodo = nodo.hijos[index];
 		}
@@ -29,18 +29,18 @@ public class TrieNodo<T1, T2> {
 
 	public ArrayList<Tupla<T1[], T2>> buscar(T1[] s) {
 		TrieNodo<T1, T2> nodo = this;
-		boolean b = false;
+		int c = 0;
 		for (int i = 0; i < s.length; i++) {
-			int index = (Character) s[i] - 'a';
+			int index = Utils.getIndex(s[i]);
 			if (nodo.hijos[index] != null) {
-				b = true;
+				c++;
 				nodo = nodo.hijos[index];
 			}
 		}
-		if (b)
+		if (c == s.length)
 			return resultados(nodo);
 		else
-			return null;
+			return new ArrayList<>();
 	}
 
 	private ArrayList<Tupla<T1[], T2>> resultados(TrieNodo<T1, T2> n) {

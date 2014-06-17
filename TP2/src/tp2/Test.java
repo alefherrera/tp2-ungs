@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Test {
 
 	public static void main(String[] args) {
-		test1();
-		 //test2();
+		// test1();
+		test2();
 	}
 
 	public static void test1() {
@@ -49,11 +49,17 @@ public class Test {
 	}
 
 	public static void test2() {
-		Character[] alfabetoCHR = { 'a', 'b', 'c' };
-		Integer[] alfabetoINT = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+		Character[] alfabetoCHR = { 'a', 'b', 'c', 'd', 'f', 'g', 'h', 'i',
+				'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+				'v', 'w', 'x', 'y', 'z' };
+		Long[] alfabetoINT = { 0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L };
 		Biblio biblio = new Biblio(alfabetoCHR, alfabetoINT);
-		biblio.agregarPorNombre("ab", 123);
+		biblio.agregarPorNombre("ab", 123L);
+		biblio.agregarPorNombre("ab", 125L);
+		biblio.agregarISBN(122L, "acc");
 		System.out.println(biblio.buscarPorNombre("ab"));
+		System.out.println(biblio.buscarPorNombre("acc"));
+		System.out.println(biblio.buscarPorISBN(125L));
 	}
 
 }
