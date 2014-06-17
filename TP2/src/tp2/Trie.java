@@ -9,11 +9,11 @@ public class Trie<T1,T2> {
 	
 	public Trie(T1 [] alfabeto){
 		this.alfabeto = alfabeto;
-		raiz = new TrieNodo<>('a');
+		raiz = new TrieNodo<>(null);
 	}
 
-	public void agregar(Tupla<T1 [],T2 > clave){
-		raiz.buscar(clave.getE1()).valor = clave;		
+	public void agregar(Tupla<T1 [],T2 > s){
+		raiz.agregar(s);		
 	}
 	
 	@Override
@@ -23,7 +23,9 @@ public class Trie<T1,T2> {
 	}
 	
 	public ArrayList<Tupla<T1 [],T2 >> buscar(T1 [] buscar){
-		return new ArrayList<Tupla<T1 [],T2 >>();
+		ArrayList<Tupla<T1 [],T2 >> r = raiz.buscar(buscar);
+		boolean a = true;
+		return r;
 	}
 	
 }
