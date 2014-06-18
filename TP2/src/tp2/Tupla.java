@@ -32,6 +32,7 @@ public class Tupla<E1, E2> {
 		this.e2 = e2;
 	}
 
+	//Mejorado para el soporte de arrays
 	@Override
 	public String toString() {
 		String ret = "";
@@ -67,6 +68,7 @@ public class Tupla<E1, E2> {
 		return ret;
 	}
 
+	//Mejorado para el soporte de arrays
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

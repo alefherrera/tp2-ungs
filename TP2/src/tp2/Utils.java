@@ -2,6 +2,8 @@ package tp2;
 
 public class Utils {
 
+	//Metodo para obtener el indice dependiendo el tipo. 
+	//Hardcodeado para los tipos usados ya que seria mas complejo enviar un alfabeto junto con su metodo para obtener lo indices
 	public static<T> int getIndex(T c)
 	{
 		if (c instanceof Character)

@@ -10,6 +10,7 @@ public class Trie<T1,T2> {
 	
 	public Trie(T1 [] alfabeto){
 		this.alfabeto = alfabeto;
+		//Inicializo la raiz para agregar siempre a sus hijos ya que la raiz no va a poseer caracter que lo identifique
 		raiz = new TrieNodo<>(null, alfabeto.length);
 	}
 
@@ -33,8 +34,7 @@ public class Trie<T1,T2> {
 	@Override
 	public String toString() {
 		return raiz.toString();
-	}
-	
+	}	
 
 	@Override
 	public boolean equals(Object obj) {
