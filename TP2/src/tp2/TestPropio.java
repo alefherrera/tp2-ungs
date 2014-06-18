@@ -68,7 +68,7 @@ public class TestPropio {
 		biblio2.agregarPorNombre("ale", 125L);
 		System.out.println(biblio.toString());
 		System.out.println(biblio2.toString());
-		System.out.println(biblio.equals(biblio2));
+		System.out.println("EQUALS: " + biblio.equals(biblio2));
 	}
 	
 	public static void testPDF() throws Exception{
