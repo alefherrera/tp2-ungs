@@ -2,12 +2,13 @@ package tp2;
 
 import java.util.ArrayList;
 
-public class Test2 {
+public class TestPropio {
 
 	public static void main(String[] args) throws Exception {
 		test1();
 		test2();
 		testEquals();
+		testPDF();
 	}
 
 	public static void test1() throws Exception {
@@ -68,6 +69,21 @@ public class Test2 {
 		System.out.println(biblio.toString());
 		System.out.println(biblio2.toString());
 		System.out.println(biblio.equals(biblio2));
+	}
+	
+	public static void testPDF() throws Exception{
+		Character[] alfabetoCHR = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+				'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+				'v', 'w', 'x', 'y', 'z', ' ' };
+		Long[] alfabetoINT = { 0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L };
+		Biblio biblio = new Biblio(alfabetoCHR, alfabetoINT);
+		biblio.agregarISBN(9785267006323L, "cien anios de soledad");
+		biblio.agregarISBN(9788490093795L, "el amor de tu vida");
+		biblio.agregarISBN(9783423113601L, "el amor en los tiempos de colera");
+		System.out.println(biblio.buscarPorISBN(978L));
+		System.out.println(biblio.buscarPorISBN(9788L));
+		System.out.println(biblio.buscarPorNombre("el amor"));
+		System.out.println(biblio.toString());
 	}
 
 }

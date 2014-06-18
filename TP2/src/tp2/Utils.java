@@ -6,8 +6,11 @@ public class Utils {
 	//Hardcodeado para los tipos usados ya que seria mas complejo enviar un alfabeto junto con su metodo para obtener lo indices
 	public static<T> int getIndex(T c)
 	{
-		if (c instanceof Character)
-			return (Character)c - 'a';
+		if (c instanceof Character){
+			Character ch = (Character)c;
+			if (ch == ' ') return 26;
+			return ch - 'a';
+		}
 		if (c instanceof Integer)
 			return (Integer)c;
 		if (c instanceof Long)
