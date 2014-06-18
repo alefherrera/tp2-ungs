@@ -11,13 +11,13 @@ public class Biblio {
 		porISBN = new Trie<Long, String>(alfabeto2);
 	}
 
-	public void agregarPorNombre(String nombre, Long ISBN) {
+	public void agregarPorNombre(String nombre, Long ISBN) throws Exception {
 		porNombre.agregar(new Tupla<Character[], Long>(Utils.stringToChar(nombre),
 				ISBN));
 		porISBN.agregar(new Tupla<Long[], String>(Utils.longToArray(ISBN), nombre));
 	}
 
-	public void agregarISBN(Long ISBN, String nombre) {
+	public void agregarISBN(Long ISBN, String nombre) throws Exception {
 		porISBN.agregar(new Tupla<Long[], String>(Utils.longToArray(ISBN), nombre));
 		porNombre.agregar(new Tupla<Character[], Long>(Utils.stringToChar(nombre),
 				ISBN));

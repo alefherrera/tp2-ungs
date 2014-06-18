@@ -14,9 +14,10 @@ public class Trie<T1,T2> {
 		raiz = new TrieNodo<>(null, alfabeto.length);
 	}
 
-	public void agregar(Tupla<T1 [],T2 > s){
+	public void agregar(Tupla<T1 [],T2 > s) throws Exception{
 		if (invariante(s.getE1()))
-		raiz.agregar(s);		
+		raiz.agregar(s);
+		else throw new Exception("Esta insertando datos iniexistentes en el alfabeto");
 	}
 	
 	private boolean invariante(T1[] t)
