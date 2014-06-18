@@ -7,6 +7,7 @@ public class Test {
 	public static void main(String[] args) {
 		// test1();
 		test2();
+		testEquals();
 	}
 
 	public static void test1() {
@@ -60,6 +61,19 @@ public class Test {
 		System.out.println(biblio.buscarPorNombre("ab"));
 		System.out.println(biblio.buscarPorNombre("acc"));
 		System.out.println(biblio.buscarPorISBN(125L));
+		System.out.println(biblio.toString());
+	}
+	
+	public static void testEquals(){
+		Character[] alfabetoCHR = { 'a', 'b', 'c', 'd', 'f', 'g', 'h', 'i',
+				'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+				'v', 'w', 'x', 'y', 'z' };
+		Long[] alfabetoINT = { 0L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L };
+		Biblio biblio = new Biblio(alfabetoCHR, alfabetoINT);
+		biblio.agregarPorNombre("ab", 123L);
+		Biblio biblio2 = new Biblio(alfabetoCHR, alfabetoINT);
+		biblio2.agregarPorNombre("ab", 123L);
+		System.out.println(biblio.equals(biblio2));
 	}
 
 }
